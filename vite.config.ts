@@ -7,6 +7,7 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, (process as any).cwd(), '');
   return {
     plugins: [react()],
+    base: './', // Important for Electron to find assets
     define: {
       'process.env.API_KEY': JSON.stringify(env.API_KEY)
     }
